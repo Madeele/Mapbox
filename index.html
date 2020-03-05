@@ -1,174 +1,267 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<title>Places I've been in</title>
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<style>
-	body { margin: 0; padding: 0; }
-	#map { position: absolute; top: 0; bottom: 0; width: 100%; height: 100%}
-</style>
+    <meta charset="utf-8" />
+    <title>Places I've been to</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%
+        }
+
+    </style>
 </head>
+
 <body>
-<style>
-    #marker {
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0d/Osiris_2.jpg');
-		background-color: red;
-        background-size: cover;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
+    <style>
+        #marker {
+            background-image: url('https://cdn.pixabay.com/photo/2016/10/18/21/16/plaza-espana-1751442_1280.jpg');
+            background-color: red;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-	#mark2 {
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0d/Osiris_2.jpg');
-		background-color: greenyellow;
-        background-size: cover;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
+        #mark2 {
+            background-image: url('https://cdn.pixabay.com/photo/2016/07/27/17/43/tunisia-1545828_1280.jpg');
+            background-color: greenyellow;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-    #mark3 {
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0d/Osiris_2.jpg');
-		background-color: greenyellow;
-        background-size: cover;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
+        #mark3 {
+            background-image: url('https://cdn.pixabay.com/photo/2020/02/07/19/26/portugal-4828134_1280.jpg');
+            background-color: greenyellow;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-    .mapboxgl-popup {
-        max-width: 200px;
-    }
-</style>
-<button id="button">Places I've been in</button>
-<div id="map"></div>
-<section id="section">
-    <p>Denmark<br>
-    Portugal<br>
-    Spain <br>
-    Tunisia<br>
-    Turkey <br>
-    Egypt<br>
-    Czech Republic<br>
-    France<br>
-    Greece<br>
+        #mark4 {
+            background-image: url('https://cdn.pixabay.com/photo/2015/07/02/10/46/hot-air-ballons-828967_1280.jpg');
+            background-color: greenyellow;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-    </p>
-</section>
+        #mark5 {
+            background-image: url('https://cdn.pixabay.com/photo/2018/04/25/09/26/eiffel-tower-3349075_1280.jpg');
+            background-color: greenyellow;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-<script>
+        #mark6 {
+            background-image: url('https://cdn.pixabay.com/photo/2015/11/14/20/30/the-old-city-1043628_1280.jpg');
+            background-color: greenyellow;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-    $(document).ready(function() {
-        $("p").css({
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
 
-            "font-size": "20px",
-            "font-family": "'Quicksand', sans-serif",
-            "padding": "50px"
+    </style>
+    <button id="button">Places I've been to...</button>
+    <div id="map"></div>
+    <section id="section">
+        <p>Denmark<br>
+            Portugal<br>
+            Spain <br>
+            Tunisia<br>
+            Turkey <br>
+            Egypt<br>
+            Czech Republic<br>
+            France<br>
+            Greece<br>
+
+        </p>
+    </section>
+
+    <script>
+        $(document).ready(function() {
+            $("p").css({
+
+                "font-size": "20px",
+                "font-family": "'Quicksand', sans-serif",
+                "padding": "50px"
+            });
         });
-    });
 
-    $(document).ready(function() {
-        $("#button").css({
+        $(document).ready(function() {
+            $("#button").css({
 
-            "background-color": "black",
-            "font-size": "30px",
-            "color": "white",
-            "width": "100%",
-            "border": "none",
-            "text-align": "center",
-            "font-family": "'Quicksand', sans-serif",
-            "float": "right",
-            "height": "10%",
-            "position": "absolute",
-            "z-index": "100",
-            "overflow": "hidden"
+                "background-color": "#0f0f0f",
+                "font-size": "30px",
+                "color": "white",
+                "width": "100%",
+                "border": "none",
+                "text-align": "center",
+                "font-family": "'Quicksand', sans-serif",
+                "float": "right",
+                "height": "10%",
+                "position": "absolute",
+                "z-index": "100",
+                "overflow": "hidden"
 
 
+            });
         });
-    });
 
-    $(document).ready(function() {
-        $("section").hide();
+        $(document).ready(function() {
+            $("section").hide();
 
-        $("section").css({
-           "background-color": "black",
-            "font-size": "20px",
-            "color": "white",
-            "width": "100%",
-            "margin-top": "65px",
-            "text-align": "center",
-            "z-index": "99",
-            "position": "absolute",
-            "height": "91%"
+            $("section").css({
+                "background-color": "#0f0f0f",
+                "font-size": "20px",
+                "color": "white",
+                "width": "100%",
+                "margin-top": "65px",
+                "text-align": "center",
+                "z-index": "99",
+                "position": "absolute",
+                "height": "91%"
+            });
         });
-    });
 
-    $("#button").click(function() {
-        $("section").slideToggle();
-    });
-
-
-	mapboxgl.accessToken = 'pk.eyJ1IjoibWFkZWVsZSIsImEiOiJjazdkMWF3NjIwNTBiM2lud2k3cjY0Njl5In0.d6TBUltXIwgnMsKbwESW7g';
-
-    var monument = [10.185,56.179];
-	let mon2 = [10.450,55.450];
-    let mon3 = [10.000,57.100];
-
-	var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/madeele/ck7d205yc102d1is6rxif813m',
-        center: monument,
-        zoom: 7,
-    });
-
-    // create the popups
-    var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        'Aarhus'
-    );
-
-	let pop2 = new mapboxgl.Popup({ offset: 25 }).setText(
-        'Odense'
-    );
-
-    let pop3 = new mapboxgl.Popup({ offset: 25 }).setText(
-        'Aalborg'
-    );
+        $("#button").click(function() {
+            $("section").slideToggle();
+        });
 
 
-    // create DOM element for the marker
-    var el = document.createElement('div');
-    el.id = 'marker';
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWFkZWVsZSIsImEiOiJjazdkMWF3NjIwNTBiM2lud2k3cjY0Njl5In0.d6TBUltXIwgnMsKbwESW7g';
 
-    var el2 = document.createElement('div');
-    el2.id = 'mark2';
+        var monument = [-3.7492, 40.4637];
+        let mon2 = [9.5375, 33.8869];
+        let mon3 = [-8.2245, 39.3999];
+        let mon4 = [35.2433, 38.9637];
+        let mon5 = [2.3522, 48.8566];
+        let mon6 = [10.2039,56.1629];
 
-    var el3 = document.createElement('div');
-    el3.id = 'mark3';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/madeele/ck7d205yc102d1is6rxif813m',
+            center: monument,
+            zoom: 1.5
+        });
 
-    // create the marker
-    new mapboxgl.Marker(el)
-        .setLngLat(monument)
-        .setPopup(popup) // sets a popup on this marker
-        .addTo(map);
+        // create the popups
+        var popup = new mapboxgl.Popup({
+            offset: 25
+        }).setText(
+            'Spain'
+        );
 
-    new mapboxgl.Marker(el2)
-        .setLngLat(mon2)
-        .setPopup(pop2) // sets a popup on this marker
-        .addTo(map);
+        let pop2 = new mapboxgl.Popup({
+            offset: 25
+        }).setText(
+            'Tunisia'
+        );
 
-    new mapboxgl.Marker(el3)
-        .setLngLat(mon3)
-        .setPopup(pop3) // sets a popup on this marker
-        .addTo(map);
-</script>
+        let pop3 = new mapboxgl.Popup({
+            offset: 25
+        }).setText(
+            'Portugal'
+        );
+        let pop4 = new mapboxgl.Popup({
+            offset: 25
+        }).setText(
+            'Turkey'
+        );
+        let pop5 = new mapboxgl.Popup({
+            offset: 25
+        }).setText(
+            'France'
+        );
+        let pop6 = new mapboxgl.Popup({
+            offset: 25
+        }).setText(
+            'Denmark'
+        );
+
+
+        // create DOM element for the marker
+        var el = document.createElement('div');
+        el.id = 'marker';
+
+        var el2 = document.createElement('div');
+        el2.id = 'mark2';
+
+        var el3 = document.createElement('div');
+        el3.id = 'mark3';
+
+        var el4 = document.createElement('div');
+        el4.id = 'mark4';
+
+        var el5 = document.createElement('div');
+        el5.id = 'mark5';
+
+        var el6 = document.createElement('div');
+        el6.id = 'mark6';
+
+        // create the marker
+        new mapboxgl.Marker(el)
+            .setLngLat(monument)
+            .setPopup(popup) // sets a popup on this marker
+            .addTo(map);
+
+        new mapboxgl.Marker(el2)
+            .setLngLat(mon2)
+            .setPopup(pop2) // sets a popup on this marker
+            .addTo(map);
+
+        new mapboxgl.Marker(el3)
+            .setLngLat(mon3)
+            .setPopup(pop3) // sets a popup on this marker
+            .addTo(map);
+
+        new mapboxgl.Marker(el4)
+            .setLngLat(mon4)
+            .setPopup(pop4) // sets a popup on this marker
+            .addTo(map);
+
+        new mapboxgl.Marker(el5)
+            .setLngLat(mon5)
+            .setPopup(pop5) // sets a popup on this marker
+            .addTo(map);
+
+         new mapboxgl.Marker(el6)
+            .setLngLat(mon6)
+            .setPopup(pop6) // sets a popup on this marker
+            .addTo(map);
+
+    </script>
 
 </body>
+
 </html>
